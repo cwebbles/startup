@@ -8,3 +8,8 @@
 - To access my EC2: ssh -i [path to key] ubuntu@[public dns]
 - Elastic IP: 3.221.30.186
 - Route 53 is AWS's DNS management service. You can purchase a domain name and then a DNS record (A to IPs and CNAME to other domains) to point to your the IP of your EC2 instance.
+
+## Caddy
+- Caddy is a web server that can be used to serve static files and reverse proxy to other services.
+- It automates the web certificate process with Let's Encrypt.
+- You should use it for all your web applications.

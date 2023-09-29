@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starfield Starlog</title>
+    <link rel="icon" href="/static/starfield_icon_1.png" />
+</head>
+
+<body>
+    <!-- Use header, main, and footer elements to give semantic structure -->
+    <header>
+        <h1>Starfield Starlog</h1>
+
+        <!-- Navigation elements -->
+        <nav>
+            <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="log.html">Log</a></li>
+                <li><a href="companions.html">Friends</a></li>
+                <li><a href="about.html">About</a></li>
+            </menu>
+        </nav>
+
+        <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+        <hr />
+    </header>
+
+    <main>
+        <div class="planet-info">
+            <span class="planet-name">Earth</span>
+            <span>--</span>
+            <iframe src="https://free.timeanddate.com/clock/i91n1ec5/n2128/fn15/pd2/tt0/ta1" frameborder="0" width="307" height="18"></iframe>
+            <span class="temperature">70<sup>&deg</sup></span>
+            <span class="user">Logged in as _xX_noob_Xx_</span>
+        </div>
+
+        <!-- WEBSOCKETS - Here I will have links to chat with the other players/see their achievements/when they are logged in -->
+        <label for="players-online"><b>Players Online</b></label>
+        <ul class="players-online">
+            <li class="player-name">Tim is online</li>
+            <li class="player-name">Ada is online</li>
+            <li class="player-name">Tim made a new log</li>
+        </ul>
+
+        <br/>
+
+        <div class="friends">
+            <div class="friend">
+                <span class="friend-name"><b>Tim</b></span>
+                <div class="latest-friend-log">
+                    <span class="friend-log-title">Sol - Thursday, September 28, 2023</span>
+                    <p class="friend-log-text">I journeyed to Sol and found some interesting remnants of Old Earth.</span>
+                </div>
+            </div>
+            <div class="friend">
+                <span class="friend-name"><b>Ada</b></span>
+                <div class="latest-friend-log">
+                    <span class="friend-log-title">Wolf - Thursday, September 26, 2023</span>
+                    <p class="friend-log-text">I visited the Den in the Wolf system, remember to return to sell contraband.</span>
+                </div>
+            </div>
+            <div class="friend">
+                <span class="friend-name"><b>Tim</b></span>
+                <div class="latest-friend-log">
+                    <span class="friend-log-title">Sol - Thursday, September 28, 2023</span>
+                    <p class="friend-log-text">I journeyed to Sol and found some interesting remnants of Old Earth.</span>
+                </div>
+            </div>
+        </div>      
+
+        <br/>
+
+    </main>
+
+    <footer>
+        <hr />
+        <span class="text-reset">Collin Webb</span>
+        <br />
+        <a href="https://github.com/cwebbles/startup">GitHub</a>
+      </footer>
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 # startup
 
+https://startup.starfield-starlog.click
+
 ## Design
 
 ### Elevator Pitch

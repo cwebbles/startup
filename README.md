@@ -38,5 +38,16 @@ I am going to use the following technologies to build this app:
 - **DB**
   - Used to store info that the frontend needs to access (i.e. user info, log entries, comments, chat messages)
 - **Login** - Register and login, Creds in db, unable to access app without login
-- **WebSocket** - Used to send chat messages between users, broadcast comments/new entries to followers
+- **WebSocket** - Used to send chat messages between users, broadcast comments/new entries to followers, broadcast when people are playing
 - **React** - Will port application to React
+
+## HTML Deliverable
+For this deliverable I created the structure of my page using HTML
+
+- **HTML Pages** - I created 5 starting pages that have the ability to login, view your logs, view others logs, and an about page.
+- **Links** - The main page links to the log, about, and friend pages. The friend page links to the friendLog page
+- **Text** - 
+- **Images** -
+- **Login** - 
+- **Database** -
+- **WebSocket** -

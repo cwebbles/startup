@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starfield Starlog</title>
+    <link rel="icon" href="/static/starfield_icon_1.png" />
+</head>
+
+<body>
+    <!-- Use header, main, and footer elements to give semantic structure -->
+    <header>
+        <h1>Starfield Starlog</h1>
+
+        <!-- Navigation elements -->
+        <nav>
+            <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="log.html">Log</a></li>
+                <li><a href="friends.html">Friends</a></li>
+                <li><a href="about.html">About</a></li>
+            </menu>
+        </nav>
+
+        <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
+        <hr />
+    </header>
+
+    <main>
+        <!-- 3RD PARTY SERVICE CALLS - Here I'll have a call to the local weather/time for the user -->
+        <div class="planet-info">
+            <span class="planet-name">Earth</span>
+            <span>--</span>
+            <iframe src="https://free.timeanddate.com/clock/i91n1ec5/n2128/fn15/pd2/tt0/ta1" frameborder="0" width="307" height="18"></iframe>
+            <span class="temperature">70<sup>&deg</sup></span>
+            <span class="user">Logged in as _xX_noob_Xx_</span>
+        </div>
+        <div class="quick-files">
+            Quick Notes
+            <div class="user-notes">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="task1" name="task1">
+                        <input type="text" id="task1Text" name="task1Text" value="Explore Planet">
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2" name="task2">
+                        <input type="text" id="task2Text" name="task2Text" value="Talk to faction leader">
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task3" name="task3">
+                        <input type="text" id="task3Text" name="task3Text" value="Sell contraband">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- WEBSOCKETS - Here I will have links to chat with the other players/see their achievements/when they are logged in -->
+        <ul class="players-online">
+            <label for="players-online"><b>Players Online</b></label>
+            <li class="player-name">Tim is online</li>
+            <li class="player-name">Ada is online</li>
+            <li class="player-name">Tim made a new log</li>
+        </ul>
+
+        <!-- More formatting with old style HTML -->
+        <br />
+
+        <div>
+            <label for="log">Log Entry</label>
+            <form id="log" method="get" action="log.html">
+                <div id="logTitle">
+                    <input type="text" id="title" value="title" />
+                </div>
+                <div id="logText">
+                    <input type="text" id="logText" value="log text" width="500" height="200" />
+                </div>
+                <button type="submit">Save Entry</button>
+            </form>
+        </div>
+
+        <!-- DATABASE - I will display past user entries here -->
+        <div class="log-entries">
+            <ul>
+                <li class="log-entry">
+                    <div class="log-title">Sol - Thursday, September 28, 2023</div>
+                    <div class="log-text">I journeyed to Sol and found some interesting remnants of Old Earth.</div>
+                </li>
+                <li class="log-entry">
+                    <div class="log-title">Title</div>
+                    <div class="log-text">Text</div>
+                </li>
+                <li class="log-entry">
+                    <div class="log-title">Title</div>
+                    <div class="log-text">Text</div>
+                </li>
+            </ul>
+        </div>
+
+        <br />
+
+        <br />
+
+    </main>
+
+    <footer>
+        <hr />
+        <span class="text-reset">Author Name(s)</span>
+        <br />
+        <a href="https://github.com/webprogramming260/simon-html">GitHub</a>
+    </footer>
+</body>
+
+</html>

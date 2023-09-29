@@ -45,9 +45,10 @@ I am going to use the following technologies to build this app:
 For this deliverable I created the structure of my page using HTML
 
 - **HTML Pages** - I created 5 starting pages that have the ability to login, view your logs, view others logs, and an about page.
-- **Links** - The main page links to the log, about, and friend pages. The friend page links to the friendLog page
-- **Text** - 
-- **Images** -
-- **Login** - 
-- **Database** -
-- **WebSocket** -
+- **Links** - The main page links to the log, about, and companion pages. The companion page will link to the companionLog page
+- **Text** - I have text on all of my pages, specifically the about page.
+- **Images** - I added an image on the about page and will hopefully have avatars in the companions.html.
+- **3rd Party Servuices** - I added a placeholder for a weather API call.
+- **Login** - Input box for username on index.html. 
+- **Database** - Placeholders for logs I will retrieve from the database.
+- **WebSocket** - I have placeholders for who is online and a chat ability.

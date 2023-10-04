@@ -13,3 +13,6 @@
 - Caddy is a web server that can be used to serve static files and reverse proxy to other services.
 - It automates the web certificate process with Let's Encrypt.
 - You should use it for all your web applications.
+
+## CSS
+- CSS is very important. Things like flexbox and grid will be really cool in my application. I need to learn it better and use them for my log pages and friend pages. 

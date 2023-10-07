@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    min-width: 375px;
     background: #f4f5f7;
 }
 
@@ -10,16 +9,37 @@ header {
 }
 
 main {
-    flex: 1 calc(100vh - 110px);
+    flex: 1 calc(100vh - 300px);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+label {
+    margin: 6px;
+}
+
+.github-link {
+    margin: 0.5em;
+    text-decoration: none;
+    color: #304c7a;
+}
+
+.signature {
+    margin: 0.5em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 1em;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5em;
 }
 
 .nav-link {

@@ -6,6 +6,8 @@ body {
 
 header {
     flex: 0 80px;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -18,6 +20,12 @@ main {
 label {
     margin: 6px;
 }
+
+.color-block-container {
+    display: flex;
+    float: right;
+}
+
 
 .github-link {
     margin: 0.5em;

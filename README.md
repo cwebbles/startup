@@ -54,3 +54,13 @@ For this deliverable I created the structure of my page using HTML
 - **Login** - Input box for username on index.html. 
 - **Database** - Placeholders for logs I will retrieve from the database.
 - **WebSocket** - I have placeholders for who is online and a chat ability.
+
+## CSS Deliverable
+For this deliverable I created the style of my page using CSS
+
+- **Header, footer, and main content** - I have a header, footer, and main content that divides the sections on my pages.
+- **Navigation Elements** - I have a styled navigation bar in my header.
+- **Responsive to window sizing** - My page is responsive to window sizing of all devices.
+- **Application Elements** - I have styled the login, log, and about pages with good colors, contrast, whitespace and elements.
+- **Application text content** - I have bootstrap font across my whole application.
+- **Application Images** - I have images and icons across my application.

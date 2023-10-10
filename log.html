@@ -69,72 +69,76 @@
     <main class="scrollable-main">
         <!-- 3RD PARTY SERVICE CALLS - Here I'll have a call to the local weather/time for the user -->
         <div class="planet-info">
-            <span class="planet-name">Earth</span>
-            <span>--</span>
-            <iframe src="https://free.timeanddate.com/clock/i91n1ec5/n2128/fn15/pd2/tt0/ta1" frameborder="0" width="307" height="18"></iframe>
-            <span class="temperature">70<sup>&deg</sup></span>
-            <span class="user">Logged in as _xX_noob_Xx_</span>
-        </div>
-        <div class="quick-files">
-            Quick Notes
-            <div class="user-notes">
-                <ul>
-                    <li>
-                        <input type="checkbox" id="task1" name="task1">
-                        <input type="text" id="task1Text" name="task1Text" value="Explore Planet">
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task2" name="task2">
-                        <input type="text" id="task2Text" name="task2Text" value="Talk to faction leader">
-                    </li>
-                    <li>
-                        <input type="checkbox" id="task3" name="task3">
-                        <input type="text" id="task3Text" name="task3Text" value="Sell contraband">
-                    </li>
-                </ul>
-            </div>
+            <p class="planet-info-text typing-demo">Earth 10 - 09 - 2023 70 degrees</p>
         </div>
 
-        <!-- WEBSOCKETS - Here I will have links to chat with the other players/see their achievements/when they are logged in -->
-        <ul class="players-online">
-            <label for="players-online"><b>Players Online</b></label>
-            <li class="player-name">Tim is online</li>
-            <li class="player-name">Ada is online</li>
-            <li class="player-name">Tim made a new log</li>
-        </ul>
 
-        <div>
-            <label for="log">Log Entry</label>
-            <form id="log" method="get" action="log.html">
-                <div id="logTitle">
-                    <input type="text" id="title" value="title" />
+        <div class="container">
+          <div class="row">
+
+          
+          <div class="quick-files col-md-9">
+              <h3 class="mb-3">Quick Notes</h3>
+              <div>
+                <div class="input-group mb-3">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                  <input type="text" class="form-control" aria-label="Text input with checkbox">
                 </div>
-                <div id="logText">
-                    <input type="text" id="logText" value="log text" width="500" height="200" />
+                <div class="input-group mb-3">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                  <input type="text" class="form-control" aria-label="Text input with checkbox">
                 </div>
-                <button type="submit">Save Entry</button>
-            </form>
-        </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+                  </div>
+                  <input type="text" class="form-control" aria-label="Text input with checkbox">
+                </div>
+              </div>
+          </div>
 
-        <!-- DATABASE - I will display past user entries here -->
-        <div class="log-entries">
-            <ul>
-                <li class="log-entry">
-                    <div class="log-title">Sol - Thursday, September 28, 2023</div>
-                    <div class="log-text">I journeyed to Sol and found some interesting remnants of Old Earth.</div>
-                </li>
-                <li class="log-entry">
-                    <div class="log-title">Title</div>
-                    <div class="log-text">Text</div>
-                </li>
-                <li class="log-entry">
-                    <div class="log-title">Title</div>
-                    <div class="log-text">Text</div>
-                </li>
+          <!-- WEBSOCKETS - Here I will have links to chat with the other players/see their achievements/when they are logged in -->
+          <div class="notifications col-md-3 mt-3 mb-3">
+            <h3>Notifications</h3>
+            <ul class="list-group">
+                <li class="player-name list-group-item">Tim is online</li>
+                <li class="player-name list-group-item">Ada is online</li>
+                <li class="player-name list-group-item">Tim made a new log</li>
             </ul>
+          </div>
         </div>
-
+          <div class="row">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sol</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Wolf</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">The Den</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">+</a>
+              </li>
+            </ul>
+              <div class="tab-info">
+                <div class="input-group mb-3 mt-3">
+                  <span class="input-group-text">Title</span>
+                  <input type="text" class="form-control" placeholder="Sol 10/04/2023" aria-label="Title">
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text">Log</span>
+                  <textarea class="form-control" placeholder="I explored Old Earth today..." aria-label="With textarea"></textarea>
+                </div>
+              </div>
+          </div>
         <br />
+      </div>
 
     </main>
 

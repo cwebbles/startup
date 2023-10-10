@@ -1,0 +1,52 @@
+.planet-info {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    font-family: monospace;
+    width: 100%;
+    padding-left: 1em auto;
+}
+
+.planet-info-text {
+    padding-left: 1em;
+}
+
+.typing-demo {
+    width: 33ch;
+    animation: typing 2s steps(33), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 1em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+.user {
+    display: flex;
+    align-self: flex-end;
+}
+
+.user-notes {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.notifications {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+

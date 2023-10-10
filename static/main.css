@@ -86,14 +86,12 @@ h1 {
 @media (max-width: 768px) {
     .color-block {
         width: 75px;
-        height: 100px;
     }
 }
 
 @media (max-width: 576px) {
     .color-block {
-        width: 50px;
-        height: 100px;
+        width: 25px;
     }
 }
 

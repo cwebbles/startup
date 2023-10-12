@@ -12,3 +12,11 @@ img {
 #quote {
     font-weight: bold;
 }
+
+.picture-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 1em auto;
+}

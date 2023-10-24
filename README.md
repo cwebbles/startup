@@ -64,3 +64,8 @@ For this deliverable I created the style of my page using CSS
 - **Application Elements** - I have styled the login, log, companions, and about pages with good colors, contrast, whitespace and elements.
 - **Application text content** - I have bootstrap font across my whole application and different font sizing for titles and such.
 - **Application Images** - I have images and icons across my application.
+
+## JavaScript Deliverable
+For this deliverable I created the functionality of my page using JavaScript and made it interactive.
+
+- **Login** - I have a login page that saves the username and password and redirects to the log page.

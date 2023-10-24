@@ -11,9 +11,11 @@
     padding-left: 1em;
 }
 
+
+
 .typing-demo {
-    width: 33ch;
-    animation: typing 2s steps(33), blink .5s step-end infinite alternate;
+    width: var(--TypingLength, 50ch);
+    animation: typing 4s steps(50), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;

@@ -1,7 +1,7 @@
 setInterval(() => {
     const chat = document.querySelector('#chat');
     chat.innerHTML =
-      chat.innerHTML + `<p><b style="color: dodgerblue">_xX_noob_Xx_:</b> No way! I've gotta do that. </p>`;
+      chat.innerHTML + `<p class="chat-message"><b style="color: dodgerblue">_xX_noob_Xx_:</b> No way! I've gotta do that. </p>`;
     if(Math.random() < 0.5) {
         const player_online = document.querySelector('#comp_1') 
         player_online.parentNode.removeChild(player_online);

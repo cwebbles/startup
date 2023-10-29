@@ -68,5 +68,7 @@ For this deliverable I created the style of my page using CSS
 ## JavaScript Deliverable
 For this deliverable I created the functionality of my page using JavaScript and made it interactive.
 
-- **Login** - I have a login page that saves the username and password and redirects to the log page.
+- **Login** - I have a login page that saves the username and password in local storage and redirects to the log page.
 - **WebSocket** - I have a stand in notifications area, chat box, and online players area that will be populated with the WebSocket.
+- **Database** - I have a function that is called when the log page is loaded that will retrieve the logs from the database and populate the page with them. I will have other functions with similar functionality for the other pages where loading info for certain users is needed.
+- **Interactions** - I have many functions, listeners, and logic that makes my page interactive and allows users to save logs, quicknotes, chat with other users, and look at other users logs.

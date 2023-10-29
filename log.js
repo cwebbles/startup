@@ -57,7 +57,7 @@ function saveNewLog(event) {
                     </div>`
     logTabContent.innerHTML = newLog + logTabContent.innerHTML;
     
-    document.querySelector('#new-log-name').value = "";
+    document.querySelector('#new-log-title').value = "";
     document.querySelector('#new-log-text').value = "";
 }
 
@@ -95,4 +95,25 @@ function checkboxListeners() {
 
 document.addEventListener('DOMContentLoaded', function() {
     eventListeners();
+
+    loadQuickNotes();
 })
+
+function loadQuickNotes() {
+    // This is where I will pull the quick notes from the database
+    // I'll have a similar function for the logs
+
+    const quickNotes = document.querySelector('#quick-notes');
+    quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+                                                        <div class="input-group-text">
+                                                            <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="Investigate Tau Ceti-I">
+                                                    </div>`
+    quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+                                                        <div class="input-group-text">
+                                                            <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
+                                                        </div>
+                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="Investigate Eridiani-VI and explore abandoned mining facility">
+                                                    </div>`
+}

@@ -15,6 +15,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script src="companions.js"></script>
 </head>
 
 <body>
@@ -71,60 +72,62 @@
         <div class="row">
           <div class="col-md-8">
             <h2 class="mb-3 mt-3">Companions</h2>
-            <div class="companion-container">
-              <div class="card companion">
+            <div class="companion-container" id="companion-box-container">
+              <div class="card companion" id="companion-box">
                 <h2 class="companion-name">Tim</h2>
                 <a href="#" class="stretched-link"></a>
               </div>
-              <div class="card companion">
+              <div class="card companion" id="companion-box">
                 <h2 class="companion-name">Ada</h2>
                 <a href="#" class="stretched-link"></a>
               </div>
-              <div class="card companion">
+              <div class="card companion" id="companion-box">
                 <h2 class="companion-name">Dave</h2>
                 <a href="#" class="stretched-link"></a>
               </div>
-              <div class="card companion">
-                <h2 class="companion-name">Ethan</h2>
-                <a href="#" class="stretched-link"></a>
-              </div>
-              <div class="card companion">
-                <h2 class="companion-name">Andreja</h2>
-                <a href="#" class="stretched-link"></a>
-              </div>
-              <div class="card companion">
-                <h2 class="companion-name">Barrett</h2>
-                <a href="#" class="stretched-link"></a>
-              </div>
-              <div class="card companion">
-                <h2 class="companion-name">Ulfric</h2>
-                <a href="#" class="stretched-link"></a>
-              </div>
-              <div class="card companion">
-                <h2 class="companion-name">Sarah</h2>
+              <div class="card companion" id="companion-box">
+                <h2 class="companion-name">Eliza</h2>
                 <a href="#" class="stretched-link"></a>
               </div>
             </div>
+            <div id="companion-info" style="display: none;">
+              <h2 class="mb-3 mt-3" id="companion-info-name">Tim</h2>
+              <div class="row">
+                <div class="col-md-8">
+                  <p id="companion-log-title">
+                    <b>Sol 10/26/2023</b>
+                  </p>
+                  <p id="companion-log" style="word-break: break-word;">
+                    I went to the Sol system and met with the Crimson Fleet.
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <button class="btn btn-secondary" id="close-companion-info-btn" type="button">Close</button>
+                </div>
+              </div>
+            </div>
+            
           </div>
           <div class="col-md-4">
             <div class="online">
             <h2 class="mb-3 mt-3">Online</h2>
-            <ul class="list-group">
-              <li class="player-name list-group-item">Tim is online</li>
-              <li class="player-name list-group-item">Ada is online</li>
+            <ul class="list-group" id="players_online" style="height: 100px; overflow: auto">
+              <li class="player-name list-group-item" id="comp_1">Tim is online</li>
+              <li class="player-name list-group-item" id="comp_2">Ada is online</li>
             </ul>
           </div>
-          <div class="chat">
+          <div>
             <h2 class="mb-3 mt-3">Chat</h2>
-            <form class="chat">
-              <p class="chat-text-user"><b style="color: dodgerblue">_xX_noob_Xx_:</b> Hey Ada, how's it going? I saw you went to Wolf!</p>
-              <p class="chat-text"><b style="color: #e9213c">Ada:</b> Yeah! Did you know you can sell contraband at the Den?</p>
-              <div class="col" style="text-align: end;">
-                <input type="text" class="form-control" id="chat" placeholder="Chat..." />
-                <button class="btn btn-primary" type="submit">Send</button>
-              </div>
-              
-          </form>
+            <form id="chat" style="height: 250px; overflow: auto;">
+              <p><b style="color: dodgerblue">_xX_noob_Xx_:</b> Hey Ada, how's it going? I saw you went to Wolf!</p>
+              <p><b style="color: #e9213c">Ada:</b> Yeah! Did you know you can sell contraband at the Den?</p>
+            </form>
+            <div class="col" style="text-align: end;">
+              <input type="text" class="form-control" id="chat" placeholder="Chat..." />
+              <button class="btn btn-primary" type="submit">Send</button>
+            </div>
             <br/>
           </div>
           </div>

@@ -69,3 +69,4 @@ For this deliverable I created the style of my page using CSS
 For this deliverable I created the functionality of my page using JavaScript and made it interactive.
 
 - **Login** - I have a login page that saves the username and password and redirects to the log page.
+- **WebSocket** - I have a stand in notifications area, chat box, and online players area that will be populated with the WebSocket.

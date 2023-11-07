@@ -2,3 +2,4 @@ collinw6-sf-base-keypair.pem
 .vscode/
 .DS_Store
 deployFiles.sh
+node_modules

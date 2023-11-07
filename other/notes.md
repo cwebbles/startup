@@ -59,7 +59,6 @@ Content, padding, border, margin
 
 Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
 
-
 What will the following code output when executed using a for loop and console.log?
 
 
@@ -69,10 +68,10 @@ How would you use JavaScript to select an element with the id of “byu” and c
 }
 
 What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
-<p>, <ol>, <ul>, <h2>, <h1>, <h3>
+p, ol, ul, h2, h1, h3
 
 How do you declare the document type to be html?
-<!DOCTYPE html>
+!DOCTYPE html
 
 What is valid javascript syntax for if, else, for, while, switch statements?
 if(){
@@ -107,7 +106,7 @@ Is is possible to add new properties to javascript objects?
 Yes
 
 If you want to include JavaScript on an HTML page, which tag do you use?
-<script>
+script
 
 Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
 

@@ -1,19 +1,19 @@
-function login() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    console.log(username, password);
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-    localStorage.setItem("--TypingLength", (46 + username.length + 'ch').toString());
-    window.location.href = "log.html";
-}
+const express = require('express');
+const app = express();
 
-function eventListeners() {
-    const signinButton = document.getElementById("signIn");
-    signinButton.addEventListener("click", login);
-}
+const port = 4000;
 
-document.addEventListener('DOMContentLoaded', function() {
-    eventListeners();
-})
+app.use(express.json())
 
+app.use(express.static('public'))
+
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
+
+app.use((_req, res) => {
+    res.sendFile('index.html', { root: 'public' });
+  });
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});

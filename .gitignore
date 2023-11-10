@@ -3,3 +3,4 @@ collinw6-sf-base-keypair.pem
 .DS_Store
 deployFiles.sh
 node_modules
+deployService.sh

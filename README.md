@@ -77,6 +77,8 @@ For this deliverable I created the functionality of my page using JavaScript and
 ## Server Deliverable
 For this deliverable I created the backend of my page using Node.js and Express. I implemented some endpoints I will use to store user data and serve it up to the frontend.
 
+The Companions page lacks service support. The work for this deliverable is on the log, index, and about pages.
+
 - **Node.js/Express** - I have a server.js file that creates a server and listens on port 4000.
 - **Static Middleware for Frontend** - I have a static middleware that serves up the frontend files.
 - **Calls to 3rd Party Services** - I have a call to the inspirational quote api that will be used to populate the about page.

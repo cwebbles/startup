@@ -72,3 +72,13 @@ For this deliverable I created the functionality of my page using JavaScript and
 - **WebSocket** - I have a stand in notifications area, chat box, and online players area that will be populated with the WebSocket.
 - **Database** - I have a function that is called when the log page is loaded that will retrieve the logs from the database and populate the page with them. I will have other functions with similar functionality for the other pages where loading info for certain users is needed.
 - **Interactions** - I have many functions, listeners, and logic that makes my page interactive and allows users to save logs, quicknotes, chat with other users, and look at other users logs.
+
+
+## Server Deliverable
+For this deliverable I created the backend of my page using Node.js and Express. I implemented some endpoints I will use to store user data and serve it up to the frontend.
+
+- **Node.js/Express** - I have a server.js file that creates a server and listens on port 4000.
+- **Static Middleware for Frontend** - I have a static middleware that serves up the frontend files.
+- **Calls to 3rd Party Services** - I have a call to the inspirational quote api that will be used to populate the about page.
+- **Backend Endpoints** - I have a few endpoints that will be used to store and retrieve user logs and login.
+- **Frontend Calls to Backend** - I have a few functions that will be used to call the backend endpoints and retrieve data. Used fetch.

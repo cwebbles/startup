@@ -11,10 +11,27 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.get('/logs/:user', (req, res) => {
-    console.log('/logs/:user hit...')
+    console.log('GET /logs/:user hit...')
     const logs = getLog(req.params.user)
-    console.log('log retrieved')
-    res.send(logs);
+    console.log('log retrieved', logs)
+    res.status(200).send(logs);
+});
+
+apiRouter.post('/logs/:user', (req, res) => {
+    console.log('POST /logs/:user hit...')
+    setLog(req.params.user, req.body)
+    console.log('log updated')
+    console.log('current Logs: ', logs)
+    res.status(201).send();
+});
+
+apiRouter.post('/login', (req, res) => {
+    console.log('POST /login hit...')
+    const user = req.body.user
+    const pass = req.body.pass
+    login(user, pass)
+    console.log('user logged in.', {user: user, pass: pass})
+    res.status(201).send();
 });
 
 app.use((_req, res) => {
@@ -36,25 +53,7 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-let logs = [
-    {
-        user: 'user',
-        logs: [
-            {
-                title: 'Sol',
-                text: 'I explored Old Earth today...'
-            },
-            {
-                title: 'Wolf',
-                text: 'I explored the Wolf system today...'
-            }
-        ],
-        quickNotes: [
-            'Investigate Tau Ceti-I',
-            'Investigate Eridiani-VI and explore abandoned mining facility'
-        ]
-    }
-]
+let logs = []
 
 function getLog(user) {
     let userLog = null
@@ -69,4 +68,43 @@ function getLog(user) {
     }
 
     return userLog
+}
+
+
+function setLog(user, userLog) {
+    let index = null
+    logs.forEach((log, i) => {
+        if (log.user == user) {
+            index = i
+        }
+    })
+
+    if (index == null) {
+        logs.push(userLog)
+    } else {
+        logs[index] = userLog
+    }
+    
+}
+
+const users = []
+
+function login(user, pass) {
+    let userIndex = null
+    users.forEach((u, i) => {
+        if (u.user == user) {
+            userIndex = i
+        }
+    })
+
+    if (userIndex == null) {
+        users.push({user: user, pass: pass})
+        setLog(user, {
+            user: user,
+            logs: [],
+            quickNotes: []
+        })
+    }
+
+    return true
 }

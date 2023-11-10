@@ -36,10 +36,12 @@ function newQuickNote (event) {
     checkboxListeners();
 }
 
-function saveNewLog(event) {
-    const logTitle = document.querySelector('#new-log-title').value;
-    const logText = document.querySelector('#new-log-text').value;
-
+async function saveNewLog(logTitle = null, logText = null) {
+    if (!logText) {
+        logTitle = document.querySelector('#new-log-title').value;
+        logText = document.querySelector('#new-log-text').value;
+    }
+    
     // Add new log tab to tab list
     const logTabs = document.querySelector('#log-tabs');
     const newLogTab = `<li class="nav-item" role="presentation"> 
@@ -59,11 +61,16 @@ function saveNewLog(event) {
     
     document.querySelector('#new-log-title').value = "";
     document.querySelector('#new-log-text').value = "";
+
+    await saveUserLogs();
 }
 
 function eventListeners() {
     const newQuickNoteButton = document.getElementById("quick-note-button");
     newQuickNoteButton.addEventListener("click", newQuickNote);
+
+    const saveQuickNoteButton = document.getElementById("quick-note-save-button");
+    saveQuickNoteButton.addEventListener("click", saveUserLogs);
 
     const newLogButton = document.getElementById("new-log-save-button");
     newLogButton.addEventListener("click", saveNewLog)
@@ -93,27 +100,101 @@ function checkboxListeners() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     eventListeners();
 
+    await loadUserLogs();
+
     loadQuickNotes();
+
+    loadLogs();
 })
+
+
+async function saveUserLogs() {
+    const user = localStorage.getItem('username')
+    const quickNotes = document.querySelectorAll('#quick-note')
+    const logs = document.querySelectorAll('#log-text')
+    const logTitles = document.querySelectorAll('#log-title')
+    const userLogs = {
+        user: user,
+        quickNotes: [],
+        logs: []
+    }
+
+    quickNotes.forEach((note) => {
+        userLogs.quickNotes.push(note.value)
+    })
+
+    for (let i = 0; i < logs.length; i++) {
+        userLogs.logs.push({
+            title: logTitles[i].innerHTML,
+            text: logs[i].innerHTML
+        })
+    }
+
+    try {
+        
+        const response = await fetch(`/api/logs/${user}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userLogs)
+        })
+        const result = await response.json()
+        console.log(result)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
+async function loadUserLogs() {
+    const user = localStorage.getItem('username')
+    localStorage.removeItem('userLog')
+    try {
+        const response = await fetch(`/api/logs/${user}`)
+        const userLog = await response.json()
+        localStorage.setItem('userLog', JSON.stringify(userLog))
+    } catch (e) {
+        console.log(e)
+        userLog = null
+    }
+}
+
+function loadLogs() {
+    const userLogs = JSON.parse(localStorage.getItem('userLog'))
+    userLogs.logs.forEach((log) => {
+        saveNewLog(log.title, log.text)
+    })
+}
 
 function loadQuickNotes() {
     // This is where I will pull the quick notes from the database
     // I'll have a similar function for the logs
 
+    let userQuickNotes = []
     const quickNotes = document.querySelector('#quick-notes');
-    quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+    const userLog = JSON.parse(localStorage.getItem('userLog'))
+
+    if (userLog.quickNotes.length != 0) {
+        userQuickNotes = userLog.quickNotes
+
+        userQuickNotes.forEach((note) => {
+            quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
                                                         <div class="input-group-text">
                                                             <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
                                                         </div>
-                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="Investigate Tau Ceti-I">
+                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="${note}">
                                                     </div>`
-    quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+        })
+    } else {
+        quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
                                                         <div class="input-group-text">
                                                             <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
                                                         </div>
-                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="Investigate Eridiani-VI and explore abandoned mining facility">
-                                                    </div>`
+                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" placeholder="Enter new Quick Note here!">
+                                                        </div>`
+    }
 }

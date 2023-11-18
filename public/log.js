@@ -101,6 +101,8 @@ function checkboxListeners() {
 
 
 document.addEventListener('DOMContentLoaded', async function() {
+    checkActiveUsers();
+
     eventListeners();
 
     await loadUserLogs();
@@ -109,6 +111,14 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     loadLogs();
 })
+
+function checkActiveUsers() {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    if (!username || !password) {
+        window.location.href = "index.html";
+    }
+}
 
 
 async function saveUserLogs() {

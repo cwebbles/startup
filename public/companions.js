@@ -43,5 +43,14 @@ function eventListeners() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    checkActiveUsers
     eventListeners();
 })
+
+function checkActiveUsers() {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    if (!username || !password) {
+        window.location.href = "index.html";
+    }
+}

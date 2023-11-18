@@ -1,4 +1,6 @@
 const { MongoClient } = require('mongodb');
+const uuid = require('uuid')
+const bcrypt = require('bcrypt')
 const config = require('./dbConfig.json')
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url)
@@ -18,18 +20,49 @@ let logCollection = null;
   });
 
 async function login(user, pass) {
-    const query = { user: user };
-    const cursor = userCollection.find(query);
-    const result = await cursor.toArray();
+    const result = await getUser(user)
     if (result.length == 0) {
-        addUser(user, pass)
+        // User does not exist
+        // 404 Not Found
+    } else {
+        // User exists
+        // Check password
+        // 200 OK
     }
-    // TODO: Add password check
 }
 
-async function addUser(user, pass) {
-    const result = await userCollection.insertOne({user: user, pass: pass})
-    return result
+async function signUp(user, pass) {
+    const result = await getUser(user)
+    if (result.length == 0) {
+        // User does not exist
+        // Create user
+        // 201 Created
+    } else {
+        // User exists
+        // 409 Conflict
+    }
+}
+
+async function getUser(user) {
+    return userCollection.findOne({user: user})
+}
+
+async function getUserByToken(token) {
+    return await userCollection.findOne({token: token});
+}
+
+async function addUser(username, pass) {
+    const passwordHash = await bcrypt.hash(pass, 10);
+
+    const user = {
+        user: username,
+        pass: passwordHash,
+        token: uuid.v4()
+    }
+
+    await userCollection.insertOne(user)
+
+    return user
 }
 
 async function updateLog(user, log) {
@@ -62,5 +95,8 @@ async function getLog(username) {
 module.exports = {
     login,
     updateLog,
-    getLog
+    getLog,
+    addUser,
+    getUser,
+    getUserByToken
 }

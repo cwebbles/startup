@@ -84,3 +84,11 @@ The Companions page lacks service support. The work for this deliverable is on t
 - **Calls to 3rd Party Services** - I have a call to the inspirational quote api that will be used to populate the about page.
 - **Backend Endpoints** - I have a few endpoints that will be used to store and retrieve user logs and login.
 - **Frontend Calls to Backend** - I have a few functions that will be used to call the backend endpoints and retrieve data. Used fetch.
+
+
+## DB Deliverable
+I implemented the same functionality I had with my server functions into a MongoDB database
+
+- **MongoDB Atlas** - I have a MongoDB Atlas database that stores user data.
+- **Endpoints for Data** - I have endpoints that receive user data and store it in the database and retrieve user data from the database.
+- **Stores Data in DB** - My application data is stored in a MongoDB database.

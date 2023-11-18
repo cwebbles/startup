@@ -92,3 +92,11 @@ I implemented the same functionality I had with my server functions into a Mongo
 - **MongoDB Atlas** - I have a MongoDB Atlas database that stores user data.
 - **Endpoints for Data** - I have endpoints that receive user data and store it in the database and retrieve user data from the database.
 - **Stores Data in DB** - My application data is stored in a MongoDB database.
+
+## Login Deliverable
+I linked up users with their logs and allowed for login.
+
+- **User Registration** - The start page now allows for new users to register.
+- **Existing User** - The start page also allows for existing users to login and see their starlog.
+- **MongoDB** - I have a MongoDB database that stores users and their data.
+- **Restrict Functionality** - I have restricted functionality to only logged in users. When you try to go to another page it will redirect you to the login page if you are not logged in. (Frontend only. I'm pretty sure anyone can access the backend endpoints)

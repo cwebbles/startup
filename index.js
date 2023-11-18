@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('./database.js')
 const app = express();
 
 const port = 4000;
@@ -10,26 +11,30 @@ app.use(express.static('public'))
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-apiRouter.get('/logs/:user', (req, res) => {
+apiRouter.get('/logs/:user', async (req, res) => {
     console.log('GET /logs/:user hit...')
-    const logs = getLog(req.params.user)
-    console.log('log retrieved', logs)
-    res.status(200).send(logs);
+    const logs = await db.getLog(req.params.user)
+    if (!logs) {
+        console.log('Unknown user error.')
+        res.status(404).send()
+    } else {
+        console.log('log retrieved', logs)
+        res.status(200).send(logs[0]);
+    }
 });
 
-apiRouter.post('/logs/:user', (req, res) => {
+apiRouter.post('/logs/:user', async (req, res) => {
     console.log('POST /logs/:user hit...')
-    setLog(req.params.user, req.body)
+    await db.updateLog(req.params.user, req.body)
     console.log('log updated')
-    console.log('current Logs: ', logs)
     res.status(201).send();
 });
 
-apiRouter.post('/login', (req, res) => {
+apiRouter.post('/login', async (req, res) => {
     console.log('POST /login hit...')
     const user = req.body.user
     const pass = req.body.pass
-    login(user, pass)
+    await db.login(user, pass)
     console.log('user logged in.', {user: user, pass: pass})
     res.status(201).send();
 });

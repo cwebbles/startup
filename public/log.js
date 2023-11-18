@@ -160,14 +160,17 @@ async function loadUserLogs() {
     } catch (e) {
         console.log(e)
         userLog = null
+        localStorage.setItem('userLog', JSON.stringify(userLog))
     }
 }
 
 function loadLogs() {
     const userLogs = JSON.parse(localStorage.getItem('userLog'))
-    userLogs.logs.forEach((log) => {
-        saveNewLog(log.title, log.text)
-    })
+    if (userLogs) {
+        userLogs.logs.forEach((log) => {
+            saveNewLog(log.title, log.text)
+        })
+    }
 }
 
 function loadQuickNotes() {
@@ -178,23 +181,32 @@ function loadQuickNotes() {
     const quickNotes = document.querySelector('#quick-notes');
     const userLog = JSON.parse(localStorage.getItem('userLog'))
 
-    if (userLog.quickNotes.length != 0) {
-        userQuickNotes = userLog.quickNotes
-
-        userQuickNotes.forEach((note) => {
-            quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
-                                                        <div class="input-group-text">
-                                                            <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
-                                                        </div>
-                                                        <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="${note}">
-                                                    </div>`
-        })
-    } else {
+    if (!userLog) {
         quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
                                                         <div class="input-group-text">
                                                             <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
                                                         </div>
                                                         <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" placeholder="Enter new Quick Note here!">
                                                         </div>`
+    } else {
+        if (userLog.quickNotes.length != 0) {
+            userQuickNotes = userLog.quickNotes
+    
+            userQuickNotes.forEach((note) => {
+                quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+                                                            <div class="input-group-text">
+                                                                <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
+                                                            </div>
+                                                            <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" value="${note}">
+                                                        </div>`
+            })
+        } else {
+            quickNotes.innerHTML = quickNotes.innerHTML + `<div class="input-group mb-3" id="quick-note-1">
+                                                            <div class="input-group-text">
+                                                                <input class="form-check-input mt-0" type="checkbox" id="quick-note-checkbox" aria-label="Checkbox for following text input">
+                                                            </div>
+                                                            <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" placeholder="Enter new Quick Note here!">
+                                                            </div>`
+        }
     }
 }

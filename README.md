@@ -87,7 +87,7 @@ The Companions page lacks service support. The work for this deliverable is on t
 
 
 ## DB Deliverable
-I implemented the same functionality I had with my server functions into a MongoDB database
+I implemented the same functionality I had with my server functions into a MongoDB database. If you sign in as 'collin' with 'password' there will be some sample data in there.
 
 - **MongoDB Atlas** - I have a MongoDB Atlas database that stores user data.
 - **Endpoints for Data** - I have endpoints that receive user data and store it in the database and retrieve user data from the database.

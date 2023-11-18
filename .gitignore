@@ -4,3 +4,4 @@ collinw6-sf-base-keypair.pem
 deployFiles.sh
 node_modules
 deployService.sh
+dbConfig.json

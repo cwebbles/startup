@@ -100,3 +100,11 @@ I linked up users with their logs and allowed for login.
 - **Existing User** - The start page also allows for existing users to login and see their starlog.
 - **MongoDB** - I have a MongoDB database that stores users and their data.
 - **Restrict Functionality** - I have restricted functionality to only logged in users. When you try to go to another page it will redirect you to the login page if you are not logged in. (Frontend only. I'm pretty sure anyone can access the backend endpoints)
+
+## WebSocket Deliverable
+I implemented a simple WebSocket that notifies other users when they have posted a new log.
+
+- **Backend** - The backend listens for incoming connections and broadcasts messages to all connected clients.
+- **Frontend** - The frontend connects to the backend and sends messages to the backend when a new log is posted.
+- **Data** - The data sent is the username of the user who posted the log.
+- **Notifications** - The frontend listens for messages from the backend and displays a notification when a new log is posted and from who.

@@ -1,15 +1,3 @@
-class Info {
-    constructor () {
-        const usernameElement = document.querySelector('.username');
-        usernameElement.value = localStorage.getItem('username');
-    }
-}
-
-setInterval(() => {
-    const notifications = document.querySelector('#log-notifications');
-    notifications.innerHTML =
-      notifications.innerHTML + `<li class="player-name list-group-item">Ada made a new log</div>`;
-  }, 5000);
 
 function newQuickNote (event) {
     const quickNoteText = []
@@ -110,6 +98,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     loadQuickNotes();
 
     loadLogs();
+
+    configureWebSocket();
 })
 
 function checkActiveUsers() {
@@ -144,7 +134,6 @@ async function saveUserLogs() {
     }
 
     try {
-        
         const response = await fetch(`/api/logs/${user}`, {
             method: 'POST',
             headers: {
@@ -157,6 +146,7 @@ async function saveUserLogs() {
     } catch (e) {
         console.log(e)
     }
+    broadcastEvent(user);
 }
 
 
@@ -218,5 +208,42 @@ function loadQuickNotes() {
                                                             <input type="text" class="form-control" id="quick-note" aria-label="Text input with checkbox" placeholder="Enter new Quick Note here!">
                                                             </div>`
         }
+    }
+}
+
+let socket
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+    socket.onopen = (event) => {
+      this.displayMsg('Starlog Connected');
+    };
+    socket.onclose = (event) => {
+      this.displayMsg('Starlog Disconnected');
+    };
+    socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        this.displayMsg(msg.from);
+    };
+  }
+
+function broadcastEvent(from) {
+    const event = {
+        from: from
+    }
+    socket.send(JSON.stringify(event));
+}
+
+function displayMsg(from) {
+    if (from === 'connected' || from === 'disconnected') {
+        const notifications = document.querySelector('#log-notifications');
+        notifications.innerHTML =
+            notifications.innerHTML + `<li class="player-name list-group-item">${from}</div>`;
+        return;
+    } else {
+        const notifications = document.querySelector('#log-notifications');
+        notifications.innerHTML =
+            notifications.innerHTML + `<li class="player-name list-group-item">${from} made a new log</div>`;
     }
 }

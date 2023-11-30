@@ -236,7 +236,7 @@ function broadcastEvent(from) {
 }
 
 function displayMsg(from) {
-    if (from === 'connected' || from === 'disconnected') {
+    if (from === 'Starlog Connected' || from === 'Starlog Disconnected') {
         const notifications = document.querySelector('#log-notifications');
         notifications.innerHTML =
             notifications.innerHTML + `<li class="player-name list-group-item">${from}</div>`;

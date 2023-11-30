@@ -1,7 +1,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
-const db = require('./database.js')
+const db = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
 const app = express();
 
 const port = 4000;
@@ -105,62 +106,8 @@ app.use(function (err, req, res, next) {
     res.send({type: err.name, message: err.message})
 })
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
-let logs = []
-
-function getLog(user) {
-    let userLog = null
-    logs.forEach((log) => {
-        if (log.user == user) {
-            userLog = log
-        }
-    })
-
-    if (userLog == null) {
-        throw new Error('Unknown user')
-    }
-
-    return userLog
-}
-
-
-function setLog(user, userLog) {
-    let index = null
-    logs.forEach((log, i) => {
-        if (log.user == user) {
-            index = i
-        }
-    })
-
-    if (index == null) {
-        logs.push(userLog)
-    } else {
-        logs[index] = userLog
-    }
-    
-}
-
-const users = []
-
-function login(user, pass) {
-    let userIndex = null
-    users.forEach((u, i) => {
-        if (u.user == user) {
-            userIndex = i
-        }
-    })
-
-    if (userIndex == null) {
-        users.push({user: user, pass: pass})
-        setLog(user, {
-            user: user,
-            logs: [],
-            quickNotes: []
-        })
-    }
-
-    return true
-}
+peerProxy(httpService)

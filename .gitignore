@@ -2,6 +2,9 @@ collinw6-sf-base-keypair.pem
 .vscode/
 .DS_Store
 deployFiles.sh
-node_modules
 deployService.sh
-dbConfig.json
+service/dbConfig.json
+service/node_modules
+service/test.js
+react_practice
+vite

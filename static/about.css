@@ -1,0 +1,22 @@
+img {
+    border-radius: 10px;
+}
+
+.about-content {
+    display: flexbox;
+    align-content: center;
+    width: 50%;
+    margin: 1em auto;
+}
+
+#quote {
+    font-weight: bold;
+}
+
+.picture-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 1em auto;
+}

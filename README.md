@@ -108,3 +108,11 @@ I implemented a simple WebSocket that notifies other users when they have posted
 - **Frontend** - The frontend connects to the backend and sends messages to the backend when a new log is posted.
 - **Data** - The data sent is the username of the user who posted the log.
 - **Notifications** - The frontend listens for messages from the backend and displays a notification when a new log is posted and from who.
+
+## React Deliverable
+I ported parts of my application to React.
+
+- **Bundling** - My application is bundled with Vite
+- **Multiple Components** - I have a functional login component, an empty log component, and a functional about component.
+- **React Router** - I have a router that routes to the login, log, and about components.
+- **React Hooks** - I didn't have time to implement this.

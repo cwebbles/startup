@@ -18,7 +18,7 @@ export function Login() {
 
   return (
     <main className='container-fluid text-center'>
-      <img className="constellation-logo" src="/static/Constellation_Logo-removebg-preview.png" alt="Constellation Logo"/>
+      <img className="constellation-logo" src="../../static/Constellation_Logo-removebg-preview.png" alt="Constellation Logo"/>
         <h1>Welcome</h1>
         <p className="typing-demo">Login to explore.</p>
   

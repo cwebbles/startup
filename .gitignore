@@ -4,6 +4,7 @@ collinw6-sf-base-keypair.pem
 dist
 deployFiles.sh
 deployService.sh
+deployReact.sh
 service/dbConfig.json
 service/node_modules
 service/test.js

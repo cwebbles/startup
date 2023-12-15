@@ -7,4 +7,5 @@ service/dbConfig.json
 service/node_modules
 service/test.js
 react_practice
+node_modules
 vite

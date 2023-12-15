@@ -35,4 +35,12 @@ export function About() {
                 setQuote(data.content + ' - Ad Astra')
             })
     }
+
+    function checkActiveUsers() {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      if (!username || !password) {
+          window.location.href = "/";
+      }
+  }
 }

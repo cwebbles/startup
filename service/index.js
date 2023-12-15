@@ -9,7 +9,6 @@ const port = 4000;
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(express.static('public'))
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -94,10 +93,6 @@ apiRouter.post('/login', async (req, res) => {
 apiRouter.get('/ping', async (req, res) => {
     console.log('GET /ping hit...')
     res.status(200).send();
-});
-
-app.use((_req, res) => {
-    res.sendFile('index.html', { root: 'public' });
 });
 
 app.use(function (err, req, res, next) {

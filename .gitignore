@@ -1,6 +1,7 @@
 collinw6-sf-base-keypair.pem
 .vscode/
 .DS_Store
+dist
 deployFiles.sh
 deployService.sh
 service/dbConfig.json
